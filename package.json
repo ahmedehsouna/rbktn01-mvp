@@ -1,0 +1,36 @@
+{
+  "name": "rbktn01-mvp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "react-dev": "webpack -d --watch",
+    "start" : "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmedehsouna/rbktn01-mvp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmedehsouna/rbktn01-mvp/issues"
+  },
+  "homepage": "https://github.com/ahmedehsouna/rbktn01-mvp#readme",
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "webpack": "^2.2.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.0",
+    "mongoose": "^4.8.6",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
+}
