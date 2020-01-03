@@ -27,11 +27,14 @@
     "webpack": "^2.2.1"
   },
   "dependencies": {
+    "bcrypt": "^3.0.7",
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.4",
     "express": "^4.15.0",
     "mongoose": "^4.8.6",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0"
   }
 }
