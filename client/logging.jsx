@@ -36,15 +36,18 @@ class logging extends React.Component{
     }
 
     render(){
-        return (<div style={stylesheet.model}>
+        return (<div id="logger" style={stylesheet.model}>
            <center>
+               {/* <div style={stylesheet.logo}></div> */}
+               <img src="./talkingCircles.jpg" width="250px" />
+               <hr/>
                 {this.state.route == "/signup"?
                 <div>
                     <p>User Name : <input className="username" type="text"/></p>
                     <p>First Name : <input className="firstname" type="text"/></p>
                     <p>Last Name : <input className="lastname" type="text"/></p>
                     <p>Password   : <input className="password" type="password"/></p>
-                    <button onClick={this.submit.bind(this, "signup")}>Submit</button>
+                    <span style={stylesheet.clickable} onClick={this.submit.bind(this, "signup")}>Submit</span>
                     <p onClick={this.changeRoute.bind(this,"/login")} style={stylesheet.clickable}>Have an account already?</p>
                 </div>
                 
@@ -52,7 +55,7 @@ class logging extends React.Component{
                 <div>
                     <p  style={{marginTop : "70px"}}>User Name : <input className="username" type="text"/></p>
                     <p>Password   : <input className="password" type="password"/></p>
-                    <button onClick={this.submit.bind(this, "login")}>Submit</button>
+                    <span style={stylesheet.clickable} onClick={this.submit.bind(this, "login")}>Submit</span>
                     <p onClick={this.changeRoute.bind(this,"/signup")} style={stylesheet.clickable}>Have no account?</p>
                 </div>
                 :null

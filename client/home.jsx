@@ -32,11 +32,14 @@ class Home extends React.Component {
 			socket : openSocket("http://localhost:3000")
 		};
 		this.state.socket.on("message", data => {
-			this.setState({messages : [...this.state.messages , data]}, _=>{
-				var s = document.getElementById("scrollable")
-				s.scrollTop = s.scrollHeight
+						if(data.circle == this.props.user.circle._id){
+							this.setState({messages : [...this.state.messages , data]}, _=>{
+								var s = document.getElementById("scrollable")
+								s.scrollTop = s.scrollHeight
+				
+							}) 
 
-			}) 
+						}
 
 		})
   }
@@ -67,16 +70,11 @@ class Home extends React.Component {
   render() {
     return (
       <center>
+				<h1 style={{color: "white", margin : "0 0 10px 0"}}>Talking Circles</h1>
         <div style={stylesheet.body}>
           {/* <SideBar /> */}
           <div
-            style={{
-							display: "flex",
-              flexDirection: "column",
-              background: "white",
-              flex: 3,
-              padding: "20px"
-            }}
+            style={stylesheet.chat}
           >
 							<nav style={stylesheet.nav}>
 								<span style={{margin :  "0 700px 0 0"}}>Circle {this.props.user.circle?this.props.user.circle.name : null}</span>
@@ -84,7 +82,9 @@ class Home extends React.Component {
 							</nav>
             <div id="scrollable" style={{ flex: 9, overflow: "scroll" }}>
               {this.state.messages.map(one => (
-								<p><b>{one.user.firstname + " "+ one.user.lastname}: </b>{one.content}</p>
+								<div style={{opacity:0.8,color : "white", background : "darkslategrey", padding : "0.2px 8px", width: "fit-content", borderRadius : "32px" , marginBottom : "8px" }}>
+									<p style={{overflowWrap: "break-word"}}><b>{one.user.firstname + " "+ one.user.lastname}: </b>{one.content}</p>
+								</div>
               ))}
             </div>
             <div style={{ flex: 1 }}>
