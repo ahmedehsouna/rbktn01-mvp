@@ -43,9 +43,9 @@ class logging extends React.Component{
                <hr/>
                 {this.state.route == "/signup"?
                 <div>
-                    <p>User Name : <input className="username" type="text"/></p>
-                    <p>First Name : <input className="firstname" type="text"/></p>
-                    <p>Last Name : <input className="lastname" type="text"/></p>
+                    <p>username : <input className="username" type="text"/></p>
+                    <p>firstname : <input className="firstname" type="text"/></p>
+                    <p>lastname : <input className="lastname" type="text"/></p>
                     <p>Password   : <input className="password" type="password"/></p>
                     <span style={stylesheet.clickable} onClick={this.submit.bind(this, "signup")}>Submit</span>
                     <p onClick={this.changeRoute.bind(this,"/login")} style={stylesheet.clickable}>Have an account already?</p>
@@ -53,7 +53,7 @@ class logging extends React.Component{
                 
                 :this.state.route == "/login"?
                 <div>
-                    <p  style={{marginTop : "70px"}}>User Name : <input className="username" type="text"/></p>
+                    <p  style={{marginTop : "70px"}}>username : <input className="username" type="text"/></p>
                     <p>Password   : <input className="password" type="password"/></p>
                     <span style={stylesheet.clickable} onClick={this.submit.bind(this, "login")}>Submit</span>
                     <p onClick={this.changeRoute.bind(this,"/signup")} style={stylesheet.clickable}>Have no account?</p>

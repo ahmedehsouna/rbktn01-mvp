@@ -44,14 +44,17 @@ class Home extends React.Component {
 		})
   }
 	componentDidMount(){
-		getMessages(`?circle=${this.props.user.circle._id}` , messages => {
-			this.setState({messages} , _=>{
-				var s = document.getElementById("scrollable")
-				s.scrollTop = s.scrollHeight
+		if(this.props.user.circle){
+			getMessages(`?circle=${this.props.user.circle._id}` , messages => {
+				this.setState({messages} , _=>{
+					var s = document.getElementById("scrollable")
+					s.scrollTop = s.scrollHeight
+				})
+				// console.log(messages)
+				
 			})
-			// console.log(messages)
-			
-		})
+
+		}
 		// var a = document.getElementById("scrollable")
 		// a.scrollTop = a.scrollHeight
 	}
@@ -77,13 +80,14 @@ class Home extends React.Component {
             style={stylesheet.chat}
           >
 							<nav style={stylesheet.nav}>
-								<span style={{margin :  "0 700px 0 0"}}>Circle {this.props.user.circle?this.props.user.circle.name : null}</span>
-								<span style={stylesheet.clickable} onClick={this.props.removeCookies}>Logout</span>
+							<span style={{flex : 1}}>{this.props.user?this.props.user.firstname + " " + this.props.user.lastname : null}</span>
+							<span style={{flex : 1}}>Circle {this.props.user.circle?this.props.user.circle.name : null}</span>
+								<span style={Object.assign(stylesheet.clickable,{flex : 1})} onClick={this.props.removeCookies}>Logout</span>
 							</nav>
             <div id="scrollable" style={{ flex: 9, overflow: "scroll" }}>
               {this.state.messages.map(one => (
 								<div style={{opacity:0.8,color : "white", background : "darkslategrey", padding : "0.2px 8px", width: "fit-content", borderRadius : "32px" , marginBottom : "8px" }}>
-									<p style={{overflowWrap: "break-word"}}><b>{one.user.firstname + " "+ one.user.lastname}: </b>{one.content}</p>
+									<p style={{overflowWrap: "break-word", maxWidth : "500px"}}><b>{one.user.firstname + " "+ one.user.lastname}: </b>{one.content}</p>
 								</div>
               ))}
             </div>

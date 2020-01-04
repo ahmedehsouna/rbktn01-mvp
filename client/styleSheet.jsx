@@ -16,7 +16,7 @@ var stylesheet = {
     cursor: "pointer"
   },
 
-  nav: { background: "white", height: "50px" },
+  nav: { background: "white", height: "50px", display : "flex" },
   body: { color : "darkslategrey", display: "flex", height: "82vh", width: "72vw" },
   chat: {
     display: "flex",
